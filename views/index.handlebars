@@ -1,3 +1,24 @@
 <h1>Burger Time!</h1>
 
-<h2>Time to Stuff Your Face!</h2>
+<div class="row banner">
+    <h2>Time to Stuff Your Face!</h2>
+</div>
+<div class="row body">
+    <div class="col">
+        <ul>
+            {{#each burger}}
+            {{#unless data.devour}}
+            <li>
+                <form class="burger-form">
+                    <label for="customerName">{{data.burgerName}}</label>
+                    <input type="text" name="customerName" placeholder="Customer Name" value=""></input>
+                    <button class="eatBtn" id="{{data.id}}">Eat It!</button>
+                </form>
+            </li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
+
+</div>
