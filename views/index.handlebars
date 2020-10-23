@@ -1,3 +1,4 @@
+<main class="container">
 <h1>Burger Time!</h1>
 
 <div class="row banner">
@@ -21,4 +22,26 @@
     </div>
 </div>
 
+<div class="col">
+    <h2>Burgers Doomed to be Consumed</h2>
+    <ul>
+        {{#each burger}}
+        {{#if data.devour}}
+        <li>
+            {{data.burgerName}} eaten by {{data.customerName}}
+        </li>
+        {{/if}}
+        {{/each}}
+    </ul>
 </div>
+
+<div>
+    <h2>Add a Burger</h2>
+    <form class="create-item">
+        <div class="item-area">
+            <input type="text" class="form-control" id="burgerArea" name="name" value="" placeholder="Burger Name"></input>
+        </div>
+        <button type="submit" class="btn">Add Burger</button>
+    </form>
+</div>
+</main>
