@@ -1,5 +1,13 @@
 const connection = require("./connection.js");
 
+function addQuestionMark(num) {
+    let array = [];
+    for (let i = 0; i < num; i++){
+        array.push("?");
+    };
+    return array.toString();
+}
+
 const orm = {
     selectAll: function(tableValue, cb){
         const queryString = "SELECT * FROM ??"
@@ -10,19 +18,22 @@ const orm = {
         });
     },
 
-    insertOne: function(tableInput, cb){
-        const queryString = "INSERT INTO burgers (??) VALUES (?)"
+    insertOne: function(table, tableCol, tableValue, cb){
+        const queryString = "INSERT INTO burgers" + table;
+       //activity 16 uses this method to complete the string
+        queryString += " (";
+        queryString += tableCol.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += addQuestionMark(tableValue.length);
+        queryString += ")";
 
         console.log(queryString);
-        queryString += " SET ";
-        queryString += objToSql(tableCol);
-        queryString += " WHERE ";
-        queryString += condition;
         connection.query(queryString, [tableInput], (err, result) => {
             if (err) throw err;
             console.log(result);
             cb(result);
-        })
+        });
     },
 
     updateOne: function(tableValue, tableCol, condition, cb){
