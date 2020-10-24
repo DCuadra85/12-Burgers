@@ -2,6 +2,7 @@
 
 $(function () {
     $(".eatBtn").on("click", function (event) {
+        console.log(this)
         event.preventDefault();
         var id = $(this).data("id");
         console.log("ID:"+id);
