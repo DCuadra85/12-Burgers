@@ -2,7 +2,7 @@
 <h1>Burger Time!</h1>
 
 <div class="row banner">
-    <h2>Time to Stuff Your Face!</h2>
+    <h2>Burgers Doomed to be Consumed</h2>
 </div>
 <div class="row body">
     <div class="col">
@@ -11,7 +11,6 @@
             {{#unless data.devour}}
             <li>
                 <form class="burger-form">
-                   
                     {{this.burger_name}}
                     <button class="btn btn-info eatBtn" id="{{data.id}}">Eat It!</button>
                 </form>
@@ -23,12 +22,12 @@
 </div>
 
 <div class="col">
-    <h2>Burgers Doomed to be Consumed</h2>
+    <h2>Devoured:</h2>
     <ul>
         {{#each burger}}
-        {{#if data.devour}}
+        {{#if this.devour}}
         <li>
-            {{data.burgerName}} eaten by {{data.customerName}}
+            {{this.burger_name}} eaten!
         </li>
         {{/if}}
         {{/each}}
@@ -37,11 +36,11 @@
 
 <div>
     <h2>Add a Burger</h2>
-    <form class="create-item">
-        <div class="item-area">
+    <form class="create-form">
+        <div class="form-group">
             <input type="text" class="form-control" id="burgerArea" name="name" value="" placeholder="Burger Name"></input>
         </div>
-        <button type="submit" class="btn btn-info addBurger">Add Burger</button>
+        <button type="submit" class="btn btn-info addburger">Add Burger</button>
     </form>
 </div>
 </main>
