@@ -13,7 +13,7 @@
                 <form class="burger-form">
                     <label for="customerName">{{data.burgerName}}</label>
                     <input type="text" name="customerName" placeholder="Customer Name" value=""></input>
-                    <button class="eatBtn" id="{{data.id}}">Eat It!</button>
+                    <button class="btn btn-info eatBtn" id="{{data.id}}">Eat It!</button>
                 </form>
             </li>
             {{/unless}}
@@ -41,7 +41,7 @@
         <div class="item-area">
             <input type="text" class="form-control" id="burgerArea" name="name" value="" placeholder="Burger Name"></input>
         </div>
-        <button type="submit" class="btn">Add Burger</button>
+        <button type="submit" class="btn btn-info addBurger">Add Burger</button>
     </form>
 </div>
 </main>

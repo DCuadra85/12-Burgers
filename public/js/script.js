@@ -1,7 +1,7 @@
 // // Make sure we wait to attach our handlers until the DOM is fully loaded.
 
 $(function () {
-    $(".devour").on("click", function (event) {
+    $(".eatBtn").on("click", function (event) {
         event.preventDefault();
         const id = $(this).data("id");
         console.log("ID:" + id);
@@ -17,6 +17,25 @@ $(function () {
             .then(function () {
                 location.reload();
             });
+    });
+});
+
+
+$(".addBurger").on("click", function(event) {
+    event.preventDefault();
+
+    const addBurger = {
+        burgerName: $("#burgerArea").val(),
+        devoured: 0
+    };
+
+    $.ajax("/api/burger", {
+        type: "POST",
+        data: addBurger
+    })
+    .then(function() {
+        console.log("New Burger Added!");
+        location.reload();
     });
 });
 // $(function() {
