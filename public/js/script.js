@@ -3,38 +3,37 @@
 $(function () {
     $(".eatBtn").on("click", function (event) {
         event.preventDefault();
-        const id = $(this).data("id");
-        console.log("ID:" + id);
+        var id = $(this).data("id");
+        console.log("ID:"+id);
 
-        const devour = {
-            devour: true
+        var wasDevoured = {
+            devoured: true
         };
 
         $.ajax("/api/burger/" + id, {
             type: "PUT",
-            data: devour,
+            data: wasDevoured,
         })
-            .then(function () {
-                location.reload();
-            });
+        .then(function () {
+            location.reload();
+        });
     });
-});
 
+    $(".addburger").on("click", function(event) {
+        event.preventDefault();
+        console.log("burgername:" + burgerName)
+        var addBurger = {
+            burgerName: $("#burgerName").val(),
+            devoured: 0
+        };
 
-$(".addburger").on("click", function(event) {
-    event.preventDefault();
-
-    var addBurger = {
-        burgerName: $("#burgerArea").val(),
-        devour: 0
-    };
-
-    $.ajax("/api/burger", {
-        type: "POST",
-        data: addBurger
-    })
-    .then(function() {
-        console.log("New Burger Added!");
-        location.reload();
+        $.ajax("/api/burger/", {
+            type: "POST",
+            data: addBurger
+        })
+        .then(function() {
+            console.log("New Burger Added!");
+            location.reload();
+        });
     });
 });

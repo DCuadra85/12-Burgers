@@ -1,8 +1,8 @@
-const connection = require("./connection.js");
+var connection = require("./connection.js");
 
 
 //Array function passes through ? value where needed for SQL to work: ref MVC, act 16
-function addQuestionMark(num) {
+function printQuestionMarks(num) {
     var array = [];
     for (let i = 0; i < num; i++) {
         array.push("?");
@@ -26,9 +26,9 @@ function objToSql(ob) {
 }
 
 //orm drawn from MVC - activity 16
-const orm = {
+var orm = {
     selectAll: function (tableInput, cb) {
-        const queryString = "SELECT * FROM " + tableInput + ";";
+        var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, (err, result) => {
             if (err) throw err;
             console.log(result);
@@ -37,13 +37,13 @@ const orm = {
     },
 
     insertOne: function (table, cols, vals, cb) {
-        const queryString = "INSERT INTO burger" + table;
+        var queryString = "INSERT INTO burger" + table;
         //activity 16 uses this method to complete the string
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += addQuestionMark(vals.length);
+        queryString += printQuestionMarks(vals.length);
         queryString += ")";
 
         console.log(queryString);
@@ -55,7 +55,7 @@ const orm = {
     },
 
     updateOne: function (table, objColVals, condition, cb) {
-        const queryString = "UPDATE " + table;
+        var queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
