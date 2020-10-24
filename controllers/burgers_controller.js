@@ -8,13 +8,13 @@ router.get("/", (req, res) => {
         const hbsObject = {
             burger: data
         };
-        // console.log("HBSObject", hbsObject);
+        console.log("HBSObject", hbsObject);
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/burger", (req, res) => {
-    console.log(req.body.name);
+    console.log(req.body.burgerName);
     burger.insertOne(
     ["burgerName", "devour"], 
     [req.body.burgerName, req.body.devour],
