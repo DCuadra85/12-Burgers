@@ -22,7 +22,17 @@ router.post("/api/burger", (req, res) => {
 });
 
 router.put("/api/burger/:id", (req, res) => {
+    console.log("Body Request", req.body);
+    const condition = "id = " + req.params.id;
 
+    console.log("Condition", condition);
+
+    burger.updateOne({devour: req.body.devour}, condition, (result) => {
+        if (result.changedRows === 0) {
+            return res.status(404).end();
+        }
+        res.status(200).end();
+    })
 });
 
 module.exports = router;
