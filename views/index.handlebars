@@ -11,8 +11,8 @@
             {{#unless data.devour}}
             <li>
                 <form class="burger-form">
-                    <label for="customerName">{{data.burgerName}}</label>
-                    <input type="text" name="customerName" placeholder="Customer Name" value=""></input>
+                   
+                    {{this.burger_name}}
                     <button class="btn btn-info eatBtn" id="{{data.id}}">Eat It!</button>
                 </form>
             </li>
