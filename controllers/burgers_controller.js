@@ -1,21 +1,23 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-var burger = require("../models/burger");
+const burger = require("../models/burger");
 
 router.get("/", (req, res) => {
     burger.selectAll((data) => {
-        var hbsObject = {
+        const hbsObject = {
             burger: data
         };
-        console.log("HBSObject", hbsObject);
+        // console.log("HBSObject", hbsObject);
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/burger", (req, res) => {
     console.log(req.body.name);
-    burger.insertOne(["burgerName", "devour"], [req.body.burgerName, req.body.devour],
+    burger.insertOne(
+    ["burgerName", "devour"], 
+    [req.body.burgerName, req.body.devour],
     (result) => {
         res.json({id: result.insertId});
     });

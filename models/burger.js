@@ -1,10 +1,10 @@
-const orm = require("../config/orm");
+var orm = require("../config/orm");
 
 //mvc, act 16 reference
 //const burger calls the primary functions out of the orm
 //which is then communicating to the DB.
 
-const burger = {
+var burger = {
     selectAll: function(callback){
         orm.selectAll("burger", (res) => {
             callback(res);

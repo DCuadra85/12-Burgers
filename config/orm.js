@@ -3,11 +3,11 @@ var connection = require("./connection.js");
 
 //Array function passes through ? value where needed for SQL to work: ref MVC, act 16
 function printQuestionMarks(num) {
-    var array = [];
+    var arr = [];
     for (let i = 0; i < num; i++) {
-        array.push("?");
+        arr.push("?");
     };
-    return array.toString();
+    return arr.toString();
 }
 
 // loop through the keys and push the key/value as a string int arr: ref MVC, act 16
