@@ -3,7 +3,7 @@ const connection = require("./connection.js");
 
 //Array function passes through ? value where needed for SQL to work: ref MVC, act 16
 function addQuestionMark(num) {
-    let array = [];
+    var array = [];
     for (let i = 0; i < num; i++) {
         array.push("?");
     };
@@ -12,9 +12,9 @@ function addQuestionMark(num) {
 
 // loop through the keys and push the key/value as a string int arr: ref MVC, act 16
 function objToSql(ob) {
-    let arr = [];
-    for (const key in ob) {
-        const value = ob[key];
+    var arr = [];
+    for (var key in ob) {
+        var value = ob[key];
         if (Object.hasOwnProperty.call(ob, key)) {
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
@@ -37,7 +37,7 @@ const orm = {
     },
 
     insertOne: function (table, cols, vals, cb) {
-        const queryString = "INSERT INTO burgers" + table;
+        const queryString = "INSERT INTO burger" + table;
         //activity 16 uses this method to complete the string
         queryString += " (";
         queryString += cols.toString();

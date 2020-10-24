@@ -1,5 +1,3 @@
-
-
 var express = require("express");
 const exphbs = require("express-handlebars");
 var app = express();
