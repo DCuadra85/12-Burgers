@@ -1,9 +1,14 @@
-CREATE DATABASE chirpy;
-USE chirpy;
-CREATE TABLE chirps (
-  id INTEGER AUTO_INCREMENT NOT NULL,
-  author VARCHAR( 255) NOT NULL,
-  body VARCHAR( 255 ) NOT NULL,
-  created_at DATETIME NOT NULL,
-  PRIMARY KEY ( id ) 
-);
+DROP DATABASE IF EXISTS burgers_db;
+
+CREATE DATABASE burgers_db;
+
+USE burgers_db;
+
+CREATE TABLE burger(
+    id INTEGER AUTO_INCREMENT,
+    burger_name VARCHAR(50) NOT NULL,
+    devoured BOOLEAN DEFAULT false,
+    PRIMARY KEY (id)
+    );
+    
+    

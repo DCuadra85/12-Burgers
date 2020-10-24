@@ -1,11 +1,11 @@
-const express = require("express")
-const router = expess.Router();
+var express = require("express");
+var router = express.Router();
 
-const burger = require("../models/burger");
+var burger = require("../models/burger");
 
 router.get("/", (req, res) => {
     burger.selectAll((data) => {
-        const hbsObject = {
+        var hbsObject = {
             burger: data
         };
         console.log(hbsObject);
@@ -23,7 +23,7 @@ router.post("/api/burger", (req, res) => {
 
 router.put("/api/burger/:id", (req, res) => {
     console.log("Body Request", req.body);
-    const condition = "id = " + req.params.id;
+    var condition = "id = " + req.params.id;
 
     console.log("Condition", condition);
 
